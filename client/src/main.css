@@ -1,0 +1,455 @@
+ /* root */
+ body {
+    height: 100%;
+    width: 100lv;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app{
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    width: 100%;
+    align-items: center;
+
+}
+
+.app .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    width: 100%;
+}
+
+
+
+
+/* Login and registr */
+
+
+
+
+
+
+
+
+.login , .register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #b9e7e7;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    background-color: white;
+    width: 200px;
+    gap: 20px;
+    border-radius: 9px;
+}
+
+input{
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+.login button , .register button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: teal;
+    color: white;
+    border-radius: 9px;
+    
+}
+
+span{
+    font-size: 12px;
+    text-align: center;
+}
+
+.error{
+    font-size: 12px;
+    text-align: center;
+    color: red;
+}
+
+
+
+
+
+/* navbar */
+
+
+
+.navbar{
+    width: 90%;
+}
+
+.navbar .container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 10px 10px 10px;
+    margin: 0;
+    border: 0;
+}
+ .link{
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 300;
+    cursor: default;
+ }
+ .links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    gap: 10px;
+    width: 100%;
+    padding: 0px 10px;
+ }
+ .logo img{
+    width: 120px;
+ }
+.links span{
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+}
+ 
+
+.write{
+    background-color: #b9e7e7;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:  1px solid white;
+}
+
+.write:hover {
+    background-color:white;
+    border-color: teal;
+  }
+  .write>.link{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .write>.link:hover{
+    color: teal;
+    cursor: pointer;
+  }
+
+
+
+
+
+
+  /* Footer */
+
+
+
+
+
+  footer{
+    margin: 100px 20px 10px 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #b9e7e7;
+    width: 90%;
+  }
+  footer img{
+    width: 50px;
+ }
+
+ 
+ 
+ /* Home Post Cards */
+
+
+.home-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+ .home{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+    width: 50%; 
+
+ }
+
+.card{
+    display: flex;
+    gap: 100px;
+
+    &:nth-child(2n + 1) {
+      flex-direction: row-reverse;
+}}
+
+.bottom{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.top{
+    flex: 2;
+    position: relative;
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: #b9e7e7;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: -1;
+      }
+}
+.top>img{
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    
+}
+
+.bottom h4{
+    font-size: 48px;
+}
+
+
+.bottom P{
+    font-size: 18px;
+    text-align: justify;
+}
+
+
+.bottom a{
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.bottom button {
+    width: max-content;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid teal;
+    color: teal;
+
+    &:hover {
+      border: 1px solid white;
+      background-color: #b9e7e7;
+      color: black;
+    }
+}
+
+
+
+/* Single post */
+
+
+.post-container{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    width: 60%;
+}
+.post-content{
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.avatar-panel{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+    justify-content: left;
+    align-items: center;
+}
+.avatar-panel img{
+    width: 100%;
+    height: 30px;
+    border-radius: 50%;
+}
+.avatar-panel .avatar{
+    width: 50px;
+    height: 50px;
+}
+.main-text h1{
+    font-size: 40px;
+}
+.main-text p{
+    text-align: justify;
+    max-width: 1000px;
+    min-width: 300px;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+.postEditDel{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    gap: 20px;
+}
+
+
+
+
+.side-menu{
+    flex: 2;
+}
+
+.sideMenuContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+.sideMenuContainer img{
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.sideMenuContainer a{
+    cursor: pointer;
+}
+
+
+
+
+
+/*   write Page  */
+
+.writePage-container{
+    
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin: 0px 50px;
+    margin-top: 50px;
+    gap: 50px;
+}
+
+.mainContent-write{
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-left: 100px;
+}
+
+.side{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-right: 100px;
+}
+.title-box{
+    border: 1px solid darkgray;
+    margin: 0px;
+}
+.ReactQuill{
+   height: 300px;
+}
+.statusAndButtons{
+    border: 1px solid darkgray;
+    padding: 0px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    gap: 10px;
+}
+.statusAndButtons h2{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    margin-top: 10px;
+}
+.file{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 10px  0px;
+    width: 100%;
+}
+.buttons button{
+    background-color: #b9e7e7;
+    color: black;
+    border: 1px solid #b9e7e7;
+    padding: 5px;
+    border-radius: 5%;
+    &:hover {
+        background-color:white;
+        color: teal; 
+        border: 1px solid teal;
+    }
+
+}
+.radio-group{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid darkgray;
+    padding: 0px 10px 10px 10px;
+    margin: 0px;
+    gap: 5px;
+}
+
+.radio-group label{
+    display: flex;
+    flex-direction: row;
+    color: teal;
+}
+
