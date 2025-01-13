@@ -74,7 +74,7 @@ const single = () => {
           </div>
         <div className='main-text'>
           <h1>{post.title}</h1>
-          {post.body}
+          <div dangerouslySetInnerHTML={{ __html: post.body }} />
          
         </div>
       </div>

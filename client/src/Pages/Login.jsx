@@ -2,12 +2,18 @@ import React, { useContext, useState } from 'react'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/authContext.jsx';
+import Navbar from '../Components/Navbar.jsx';
+import Footer from '../Components/Footer.jsx';
+import { FaEye,FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   let [userData,setUserData] = useState({
     email:"",
     password:""
   });
+
+  let [visable,setVisable] = useState(false); 
+
   let [errorText,setErrorText]= useState(null);
   
   let navigate = useNavigate();
@@ -38,17 +44,28 @@ const Login = () => {
   }
 
   return (
+    <div className='app'>
+    <Navbar/>
     <div className='login'>
       <h1>Login</h1>
       <form onSubmit={handelSubmit}>
-        <input required placeholder='email address' type="text" id="fname" name="email" onChange={handelChange}/>
-        <input required placeholder='password' type="text" id="lname" name="password" onChange={handelChange}/>
+        <input required placeholder='email address' type="text" name="email" onChange={handelChange}/>
+        <div className='password'>
+        <input required placeholder='password' type={visable?"text":"password"} name="password" 
+        onChange={handelChange}>
+        </input>
+          <div className='eye' onClick={()=>{setVisable(!visable)}}>
+          {visable? <FaEyeSlash />:<FaEye />}
+          </div>
+        </div>
         <button>Login</button>
         {errorText && <p className='error'>{errorText}</p>}
         <span>Don't have an account? <Link to={"/register"}>Register</Link>
         </span> 
         
         </form>
+    </div>
+    <Footer/>
     </div>
   );
 }

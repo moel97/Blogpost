@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer';
+import { FaEye,FaEyeSlash } from "react-icons/fa";
 const register = () => {
   let [userData,setUserData] = useState({
     name:"",
@@ -9,6 +12,8 @@ const register = () => {
   });
   let [errorText,setErrorText]= useState(null);
   
+  let [visable,setVisable] = useState(false);
+
   let navigate = useNavigate();
 
   function handelChange (e) {
@@ -38,18 +43,29 @@ const register = () => {
   }
 
     return (
+    <div className="app">
+    <Navbar/>
       <div className='register'>
         <h1>Register</h1>
         <form  onSubmit={handelSubmit}>
           <input  placeholder='user name' name='name' type="text" onChange={handelChange}  required/>
           <input  placeholder='email address' type="text" onChange={handelChange} name='email' required/>
-          <input  placeholder='password' type="text" onChange={handelChange} name='password' required/>
-          <button >register</button>
+          <div className='password'>
+              <input required placeholder='password' type={visable?"text":"password"} name="password" 
+              onChange={handelChange}>
+              </input>
+                <div className='eye' onClick={()=>{setVisable(!visable)}}>
+                {visable? <FaEyeSlash />:<FaEye />}
+                </div>
+          </div>
+          <button >Register</button>
           {errorText && <p className='error'>{errorText}</p>}
           <span>already have an account? <Link to={"/login"}>Login</Link>
           </span> 
           
           </form>
+      </div>
+      <Footer/>
       </div>
   )
 }

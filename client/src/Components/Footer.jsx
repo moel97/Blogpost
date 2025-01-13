@@ -1,11 +1,13 @@
 import React from 'react'
-import LOGO from '../../public/logo.png';
+import Logo from './SmallerComponents'
 const Footer = () => {
   return (
+    <div className='footer'>
     <footer>
-          <img src={LOGO} alt="logo" />
-        <span>Made with Love and React.js</span>
+          <Logo/>
+          <span>© 2024 BlogShere - by Mohamed Elsayed</span>
     </footer>
+    </div>
   )
 }
 

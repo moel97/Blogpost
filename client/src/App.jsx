@@ -20,13 +20,15 @@ import Navbar from './Components/Navbar';
 
 
 const Layout = ()=>{
-  return (<div className='container'>
-
+  return (
+      	<div className='app'>
         <Navbar/>
-        <Outlet/>
+        <div id='container'>
+        <Outlet className='container'/>
+        </div>
         <Footer/>
-
-          </div>);
+        </div>
+         );
 };
 
 const router = createBrowserRouter([
@@ -75,11 +77,7 @@ function App() {
 
   return (
     <>
-      <div className='app'>
-        <div className='container'>
           <RouterProvider router={router} />
-        </div>
-      </div>
       
     </>
   )

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
  import ReactQuill from 'react-quill';
  import 'react-quill/dist/quill.snow.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { MuiButton } from '../Components/MuiComponents';
  const write = () => {
   const state = useLocation().state;
   const location = useLocation();
@@ -92,14 +93,13 @@ import { useLocation, useNavigate } from 'react-router-dom';
       <div className='side'>
       <div className='statusAndButtons'>
       <h2>Publish</h2>
-      <span><b>Status:</b> Draft <br /> </span>
+      <span><b>Status:</b> {state?"Published":"Draft"} <br /> </span>
       <span><b>visability:</b> Public </span>
-      <input style={{display:"none"}} type="file" id='file' name='photo' onChange={(e) => {setPhotoFile(e.target.files[0])}}/>
-      <label className='file' htmlFor="file">upload image</label>
-      <div className="buttons">
-        <button> save as draft </button>
-        <button onClick={handlePuplishing}> {state ? "update":"puplish"} </button>
-      </div>
+        <input style={{display:"none"}} type="file" id='file' name='photo' onChange={(e) => {setPhotoFile(e.target.files[0])}}/>
+        <label className='file' htmlFor="file">upload image</label>
+        <div className='publish'  onClick={handlePuplishing}>
+          <MuiButton text={state ? "update":"publish"} bg = 'black' />
+        </div>
       </div>
     
       <div className="radio-group">

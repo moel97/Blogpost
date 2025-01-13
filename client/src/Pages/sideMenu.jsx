@@ -29,7 +29,7 @@ function sideMenu(props) {
 
   return (
     <div className='sideMenuContainer'>
-        <h1>Posts you may like</h1>
+        {posts.length>1&&<h1>Posts you may like</h1>}
         {posts.map((post)=>{
           
           if (+postId !== post.id){
@@ -37,7 +37,7 @@ function sideMenu(props) {
             <div key={post.id}>
                 <img src={post?.photo} alt="" />
                 <Link className='link' to = {`/Post/${post.id}`}>
-                <h2>{post.title}</h2>
+                <h3>{post.title}</h3>
                 </Link>
 
                 

@@ -34,12 +34,15 @@ const Home = () => {
     <div className='home-container'>
     <div className='home'>
       {posts.length > 0 ? posts.map((post) => (
+        
+        
         <PostCard 
         key = {post.id}
         id = {post.id}
         title = {post.title}
         desc ={post.body}
         img ={post.photo}
+        genre = {post.genre}
         />
 
       )) : <p>No posts available</p> }
