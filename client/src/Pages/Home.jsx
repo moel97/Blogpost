@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PostCard from './postCard.jsx'
-import axios from 'axios';
+import API from "../axios_common";
 import { useLocation } from 'react-router-dom';
 const Home = () => {
 
@@ -10,7 +10,7 @@ const Home = () => {
   
   async function getPosts (){
     try{
-      const res = await axios.get(`http://localhost:3000/api/posts/${genre}`);
+      const res = await API.get(`/posts/${genre}`);
       return ( res.data) ;
     }catch(err){
       console.log(err);

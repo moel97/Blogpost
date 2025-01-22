@@ -6,7 +6,7 @@ function postCard(probs) {
   return (
     <div  className="card">
       <div className="top">
-         <img src={probs.img} alt="img" />
+         {probs.img? <img src={probs.img} alt="img" />: null}
       </div>
       <div className="bottom">
         <Link to={`/Post/${probs.id}`}>

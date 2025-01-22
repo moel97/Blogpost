@@ -376,6 +376,8 @@ input{
     text-overflow: ellipsis; /* Optional: Add ellipsis for visual indication */
     display: -webkit-box; /* For Safari */
     -webkit-box-orient: vertical; /* For Safari */
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 
@@ -469,6 +471,8 @@ input{
     min-width: 300px;
     line-height: 30px;
     font-size: 20px;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .postEditDel{

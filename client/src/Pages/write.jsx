@@ -1,4 +1,4 @@
- import axios from 'axios';
+import API from "../axios_common";
 import React, { useState } from 'react';
  import ReactQuill from 'react-quill';
  import 'react-quill/dist/quill.snow.css';
@@ -35,17 +35,17 @@ import { MuiButton } from '../Components/MuiComponents';
         setPostData((prevVal) => {
           return {...prevVal, }
         });}
-      axios.defaults.withCredentials = true;
+      API.defaults.withCredentials = true;
       
       if (state !== null){
         let postId = location.search.split("=")[1]
         
-        let res = await axios.put(`http://localhost:3000/api/posts/${postId}`,photoURL?{...postData, photo:"/"+photoURL}:postData)
+        let res = await API.put(`/posts/${postId}`,photoURL?{...postData, photo:"/"+photoURL}:postData)
         if(res.status===200){ 
           navigate("/");
         }
       }else{
-        let res = await axios.post("http://localhost:3000/api/posts/",photoURL?{...postData, photo:"/"+photoURL}:postData)
+        let res = await API.post("/posts/",photoURL?{...postData, photo:"/"+photoURL}:postData)
         if(res.status===200){ 
           navigate("/");
         }
@@ -75,8 +75,9 @@ import { MuiButton } from '../Components/MuiComponents';
     try {
       const formData = new FormData();
       formData.append("photo",photoFile);
-      const res = await axios.post("http://localhost:3000/api/upload",formData)
-      
+      const res = await API.post("/upload",formData)
+      console.log( "res.data");
+      console.log( res.data);
       return res.data ;
       
     } catch (error) {

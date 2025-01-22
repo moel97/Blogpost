@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+import API from "../axios_common";
 function sideMenu(props) {
 
   const genre = props.genre ; 
@@ -10,7 +10,8 @@ function sideMenu(props) {
   
   async function getPosts (){
     try{
-      const res = await axios.get(`http://localhost:3000/api/posts/?cat=${genre}`);
+      
+      const res = await API.get(`/posts/?cat=${props.genre}`);
       return ( res.data) ;
     }catch(err){
       console.log(err);
@@ -19,12 +20,13 @@ function sideMenu(props) {
   }
   
   useEffect (() => {
+    if (genre){
     const fetchPosts = async () => {
       const postsData = await getPosts();
       setPosts(postsData);
     };
 
-    fetchPosts();
+    fetchPosts();}
   }, [genre]);
 
   return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import axios from 'axios';
+import API from "../axios_common";
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
@@ -30,7 +30,7 @@ const register = () => {
         setErrorText ("please enter a valid email");
         return;
       }
-      let res = await axios.post("http://localhost:3000/api/auth/register", userData)
+      let res = await API.post("/auth/register", userData)
       if(res.status===200){
         setErrorText (null); 
         navigate("/login");

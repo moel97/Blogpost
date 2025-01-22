@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import SideMenu from './sideMenu'
-import axios from 'axios'
+import API from "../axios_common";
 import moment from 'moment'
 import { AuthContext } from '../context/authContext.jsx'
 
@@ -24,7 +24,7 @@ const single = () => {
   const {currentUser} = useContext(AuthContext)
   async function getPost (){
     try{
-      const res = await axios.get(`http://localhost:3000/api/posts/${postId}`);
+      const res = await API.get(`/posts/${postId}`);
       
       return ( res.data[0]) ;
     }catch(err){
@@ -36,11 +36,13 @@ const single = () => {
   
   async function handleDelete(){
     try{
-    const res = await axios.delete(`http://localhost:3000/api/posts/${postId}`);
+    const res = await API.delete(`/posts/${postId}`, {
+      withCredentials: true, // Ensure cookies are included
+    });
     if(res.status===200){ 
       navigator("/");
     }
-  }catch{
+  }catch(err){
     console.log(err);
   }
   }
@@ -53,13 +55,15 @@ const single = () => {
 
     fetchPosts();
   }, [postId]);  
+   //post.photo &&<img className='main-img' src= {post?.photo} alt="" />
   return (
     found !== "404" ? (
     <div className='post-container'>
       <div className='post-content'>
-        {post.photo &&<img className='main-img' src= {post?.photo} alt="" />}
+
+       
         <div className='avatar-panel'>
-          {post.uPhoto && <img className='avatar' src="/public/avatar.png" alt="" />}
+          {post.uPhoto && <img className='avatar' src="../public/avatar.png" alt="" />}
           <div>
             <h3>{post.name}</h3>
             <p>posted {moment(post.postingdate).fromNow()}</p>

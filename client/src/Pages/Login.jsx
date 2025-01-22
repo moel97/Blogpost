@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import axios from 'axios';
+import API from "../axios_common";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/authContext.jsx';
 import Navbar from '../Components/Navbar.jsx';
@@ -30,7 +30,7 @@ const Login = () => {
   async function handelSubmit (e){
     e.preventDefault();
     try{
-      axios.defaults.withCredentials = true;
+      API.defaults.withCredentials = true;
       let res = await login(userData)
       if(res.status===200){
         setErrorText (null); 
