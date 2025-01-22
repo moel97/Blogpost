@@ -66,7 +66,7 @@ const single = () => {
           {post.uPhoto && <img className='avatar' src="../public/avatar.png" alt="" />}
           <div>
             <h3>{post.name}</h3>
-            <p>posted {moment(post.postingdate).fromNow()}</p>
+            <p>posted {post.postingdate}</p>
             </div>
           
           {currentUser!== null && currentUser.name === post.name && (
