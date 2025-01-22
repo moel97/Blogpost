@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
-import LOGO from '../../public/logo.png';
 import { AuthContext } from '../context/authContext.jsx';
 import { IoMenuSharp } from "react-icons/io5";
 import { MdClose } from "react-icons/md";
