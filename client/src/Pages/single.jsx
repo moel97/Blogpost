@@ -63,7 +63,7 @@ const single = () => {
 
        
         <div className='avatar-panel'>
-          {post.uPhoto && <img className='avatar' src="../public/avatar.png" alt="" />}
+          {post.uPhoto && <img className='avatar' src="/avatar.png" alt="" />}
           <div>
             <h3>{post.name}</h3>
             <p>posted on {post.postingdate}</p>
@@ -72,7 +72,7 @@ const single = () => {
           {currentUser!== null && currentUser.name === post.name && (
           <div className='postEditDel'>
           <Link state={post} to = {`/write?edit=${postId}`} ><img className="edit" src="/edit.png" alt="" /></Link>
-          <Link onClick={handleDelete}><img className='delete' src="/public/delete.png" alt="" /></Link>
+          <Link onClick={handleDelete}><img className='delete' src="/delete.png" alt="" /></Link>
           </div>
           )}
           </div>
