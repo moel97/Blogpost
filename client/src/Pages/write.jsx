@@ -40,12 +40,12 @@ import { MuiButton } from '../Components/MuiComponents';
       if (state !== null){
         let postId = location.search.split("=")[1]
         
-        let res = await API.put(`/posts/${postId}`,photoURL?{...postData, photo:"/"+photoURL}:postData)
+        let res = await API.put(`/posts/${postId}`,photoURL?{...postData, photo:photoURL}:postData)
         if(res.status===200){ 
           navigate("/");
         }
       }else{
-        let res = await API.post("/posts/",photoURL?{...postData, photo:"/"+photoURL}:postData)
+        let res = await API.post("/posts/",photoURL?{...postData, photo:photoURL}:postData)
         if(res.status===200){ 
           navigate("/");
         }
@@ -78,7 +78,7 @@ import { MuiButton } from '../Components/MuiComponents';
       const res = await API.post("/upload",formData)
       console.log( "res.data");
       console.log( res.data);
-      return res.data ;
+      return res.data. ;
       
     } catch (error) {
       console.log(error);
