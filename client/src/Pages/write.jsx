@@ -76,9 +76,7 @@ import { MuiButton } from '../Components/MuiComponents';
       const formData = new FormData();
       formData.append("photo",photoFile);
       const res = await API.post("/upload",formData)
-      console.log( "res.data");
-      console.log( res.data);
-      return res.data. ;
+      return res.data ;
       
     } catch (error) {
       console.log(error);
