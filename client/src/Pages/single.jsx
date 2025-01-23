@@ -55,13 +55,11 @@ const single = () => {
 
     fetchPosts();
   }, [postId]);  
-   //post.photo &&<img className='main-img' src= {post?.photo} alt="" />
   return (
     found !== "404" ? (
     <div className='post-container'>
       <div className='post-content'>
-
-       
+        {post.photo &&<img className='main-img' src= {post?.photo} alt="" />}
         <div className='avatar-panel'>
           {post.uPhoto && <img className='avatar' src="/avatar.png" alt="" />}
           <div>
